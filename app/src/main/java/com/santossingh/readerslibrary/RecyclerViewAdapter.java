@@ -48,14 +48,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 ImageLoaderHelper.getInstance(context).getImageLoader());
         holder.dynamicImageView.setAspectRatio(AspectRatio);
 
-//        Glide.with(context).load(holder.mItem.getVolumeInfo().getImageLinks().getThumbnail())
-//                .placeholder(R.drawable.book1)
-//                .crossFade()
-//                .into(holder.mImageView);
         holder.mIdView.setText(holder.mItem.getVolumeInfo().getTitle());
 
-//        String rating=holder.mItem.getVolumeInfo().getAuthors().get(0);
-        holder.mContentView.setText(holder.mItem.getVolumeInfo().getPublishedDate() != null ? "Published: " + holder.mItem.getVolumeInfo().getPublishedDate() : "Published: Not available");
+//        holder.mContentView.setText(holder.mItem.getVolumeInfo().getPublishedDate() != null ? "Published: " + holder.mItem.getVolumeInfo().getPublishedDate() : "Published: Not available");
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,32 +76,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        //        public final ImageView mImageView;
         public final TextView mIdView;
-        public final TextView mContentView;
+        //        public final TextView mContentView;
         private final DynamicHeightNetworkImageView dynamicImageView;
         public Item mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-//            mImageView=(ImageView) view.findViewById(R.id.thumbnail);
             dynamicImageView = (DynamicHeightNetworkImageView) view.findViewById(R.id.thumbnail);
             mIdView = (TextView) view.findViewById(R.id.Title);
-            mContentView = (TextView) view.findViewById(R.id.Aurthor);
-
-
+//            mContentView = (TextView) view.findViewById(R.id.Aurthor);
         }
-
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
-        }
-
-//        @Override
-//        public void onClick(View view) {
-//            int position=getAdapterPosition();
-//            mListener.onListFragmentInteraction(itemList.get(position));
-//        }
     }
 }
