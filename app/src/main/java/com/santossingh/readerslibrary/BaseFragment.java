@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import android.widget.Toast;
 import com.santossingh.readerslibrary.Database.BooksLibrary;
 import com.santossingh.readerslibrary.Database.Item;
 import com.santossingh.readerslibrary.Services.DataManager;
+import com.santossingh.readerslibrary.Utilities.AutofitGridlayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,12 +32,11 @@ public class BaseFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
+    RecyclerView recyclerView;
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-
     private DataManager dataManager;
-    RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private List<Item> itemsList;
     private Item firstResult;
@@ -75,35 +74,23 @@ public class BaseFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_item_list, container, false);
 
         itemsList = new ArrayList<Item>();
-        recyclerViewAdapter = new RecyclerViewAdapter(getContext(), itemsList, mListener);
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            recyclerView = (RecyclerView) view.findViewById(R.id.Rlist);
-            int columnCount = getResources().getInteger(R.integer.list_column_count);
-            StaggeredGridLayoutManager sglm =
-                    new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
-            recyclerView.setLayoutManager(sglm);
 
-//            if (mColumnCount <= 1) {
-//                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-//            } else {
-//                recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-//            }
-            recyclerView.setAdapter(recyclerViewAdapter);
-        }
+        // Set the adapter
+        configRecycleView();
         makeService();
         return view;
     }
 
-//    private void configRecycleView() {
-//        AutofitGridlayout layoutManager = new AutofitGridlayout(getActivity(), 200 );
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setRecycledViewPool(new RecyclerView.RecycledViewPool());
-//        recyclerView.setLayoutManager(layoutManager);
-//        recyclerAdapter = new RecycleAdapter( BaseFragment.this);
-//        recyclerView.setAdapter(recyclerAdapter);
-//    }
+    private void configRecycleView() {
+        recyclerViewAdapter = new RecyclerViewAdapter(getContext(), itemsList, mListener);
+        recyclerView = (RecyclerView) view.findViewById(R.id.Rlist);
+        int columnCount = getResources().getInteger(R.integer.list_column_count);
+        AutofitGridlayout autofitGridlayout = new AutofitGridlayout(getActivity(), 330);
+        //    StaggeredGridLayoutManager sglm =
+        //            new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(autofitGridlayout);
+        recyclerView.setAdapter(recyclerViewAdapter);
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -120,21 +107,6 @@ public class BaseFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(Item result);
     }
 
     public void makeService() {
@@ -166,5 +138,20 @@ public class BaseFragment extends Fragment {
             }
 
         });
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p/>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnListFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onListFragmentInteraction(Item result);
     }
 }
