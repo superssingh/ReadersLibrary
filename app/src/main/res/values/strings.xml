@@ -14,6 +14,7 @@
     <string name="Preview">preview</string>
     <string name="KEY">key</string>
     <string name="No_Internet">Please Turn ON Internet Connection</string>
+    <string name="AspectRatio">0.73f</string>
 
 
 </resources>

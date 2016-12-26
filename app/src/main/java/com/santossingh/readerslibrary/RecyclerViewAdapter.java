@@ -25,6 +25,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private List<Item> itemList = new ArrayList<Item>();
     private OnListFragmentInteractionListener mListener;
     private Context context;
+    private float AspectRatio = 0.73f;
 
     public RecyclerViewAdapter(Context context, List<Item> itemList, OnListFragmentInteractionListener listener) {
         this.context = context;
@@ -45,7 +46,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.dynamicImageView.setImageUrl(holder.mItem.getVolumeInfo().getImageLinks().getThumbnail(),
                 ImageLoaderHelper.getInstance(context).getImageLoader());
-        holder.dynamicImageView.setAspectRatio(0.73f);
+        holder.dynamicImageView.setAspectRatio(AspectRatio);
 
 //        Glide.with(context).load(holder.mItem.getVolumeInfo().getImageLinks().getThumbnail())
 //                .placeholder(R.drawable.book1)
@@ -71,6 +72,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public int getItemCount() {
         return itemList.size();
+    }
+
+    public void addList(List<Item> itemList) {
+        this.itemList = itemList;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -102,10 +108,5 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 //            int position=getAdapterPosition();
 //            mListener.onListFragmentInteraction(itemList.get(position));
 //        }
-    }
-
-    public void addList(List<Item> itemList) {
-        this.itemList = itemList;
-        notifyDataSetChanged();
     }
 }
