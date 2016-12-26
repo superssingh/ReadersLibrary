@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Readers Library</string>
+
+    //URLs
+    <string name="BASE_URL">www.googleapis.com/</string>
+    <string name="DownloadLink">books/v1/volumes?q=1</string>
+    <!--https://www.googleapis.com/books/v1/volumes?q=technology&maxResults=40-->
+
+    //Queries
+    <string name="Popular">volumes?q=1</string>
+    <string name="Fantasy">subject:fantasy</string>
+    <string name="Adventure">subject:adventure</string>
+    <string name="BookReview">reviews</string>
+    <string name="Preview">preview</string>
+    <string name="KEY">key</string>
+    <string name="No_Internet">Please Turn ON Internet Connection</string>
+
+
 </resources>
