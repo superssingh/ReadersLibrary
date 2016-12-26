@@ -30,7 +30,7 @@
             android:id="@+id/Title"
             android:text="@string/Fantasy"
             android:textSize="@dimen/Title"
-            android:background="@color/Black_transparent_50"
+            android:background="@color/Black_transparent_70"
             android:textStyle="bold"
             android:textColor="#fff"
             android:paddingTop="@dimen/paddingTitle"
@@ -45,7 +45,7 @@
             android:paddingLeft="@dimen/paddingTitle"
             android:paddingBottom="@dimen/paddingSmall"
             android:textColor="#fff"
-            android:background="@color/Black_transparent_50"
+            android:background="@color/Black_transparent_70"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?attr/textAppearanceListItem" />
