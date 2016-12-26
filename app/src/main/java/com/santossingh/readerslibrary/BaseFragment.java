@@ -3,9 +3,8 @@ package com.santossingh.readerslibrary;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,18 +75,21 @@ public class BaseFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_item_list, container, false);
 
         itemsList = new ArrayList<Item>();
-        recyclerViewAdapter = new RecyclerViewAdapter(itemsList, mListener);
+        recyclerViewAdapter = new RecyclerViewAdapter(getContext(), itemsList, mListener);
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             recyclerView = (RecyclerView) view.findViewById(R.id.Rlist);
-            recyclerView = (RecyclerView) view;
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
+            int columnCount = getResources().getInteger(R.integer.list_column_count);
+            StaggeredGridLayoutManager sglm =
+                    new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
+            recyclerView.setLayoutManager(sglm);
+
+//            if (mColumnCount <= 1) {
+//                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+//            } else {
+//                recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
+//            }
             recyclerView.setAdapter(recyclerViewAdapter);
         }
         makeService();

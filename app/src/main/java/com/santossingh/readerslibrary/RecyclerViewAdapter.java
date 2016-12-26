@@ -1,5 +1,6 @@
 package com.santossingh.readerslibrary;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 
 import com.santossingh.readerslibrary.BaseFragment.OnListFragmentInteractionListener;
 import com.santossingh.readerslibrary.Database.Item;
+import com.santossingh.readerslibrary.Utilities.DynamicHeightNetworkImageView;
+import com.santossingh.readerslibrary.Utilities.ImageLoaderHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +24,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private List<Item> itemList = new ArrayList<Item>();
     private OnListFragmentInteractionListener mListener;
+    private Context context;
 
-    public RecyclerViewAdapter(List<Item> itemList, OnListFragmentInteractionListener listener) {
+    public RecyclerViewAdapter(Context context, List<Item> itemList, OnListFragmentInteractionListener listener) {
+        this.context = context;
         this.itemList = itemList;
         mListener = listener;
     }
@@ -37,9 +42,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = itemList.get(position);
-        holder.mIdView.setText(itemList.get(position).getVolumeInfo().getTitle());
-        holder.mContentView.setText(itemList.get(position).getVolumeInfo().getDescription());
 
+        holder.dynamicImageView.setImageUrl(holder.mItem.getVolumeInfo().getImageLinks().getThumbnail(),
+                ImageLoaderHelper.getInstance(context).getImageLoader());
+        holder.dynamicImageView.setAspectRatio(0.73f);
+
+//        Glide.with(context).load(holder.mItem.getVolumeInfo().getImageLinks().getThumbnail())
+//                .placeholder(R.drawable.book1)
+//                .crossFade()
+//                .into(holder.mImageView);
+        holder.mIdView.setText(holder.mItem.getVolumeInfo().getTitle());
+
+//        String rating=holder.mItem.getVolumeInfo().getAuthors().get(0);
+        holder.mContentView.setText(holder.mItem.getVolumeInfo().getPublishedDate() != null ? "Published: " + holder.mItem.getVolumeInfo().getPublishedDate() : "Published: Not available");
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,15 +75,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
+        //        public final ImageView mImageView;
         public final TextView mIdView;
         public final TextView mContentView;
+        private final DynamicHeightNetworkImageView dynamicImageView;
         public Item mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+//            mImageView=(ImageView) view.findViewById(R.id.thumbnail);
+            dynamicImageView = (DynamicHeightNetworkImageView) view.findViewById(R.id.thumbnail);
+            mIdView = (TextView) view.findViewById(R.id.Title);
+            mContentView = (TextView) view.findViewById(R.id.Aurthor);
+
+
         }
 
         @Override
