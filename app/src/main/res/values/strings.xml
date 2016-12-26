@@ -3,11 +3,11 @@
 
     //URLs
     <string name="BASE_URL">www.googleapis.com/</string>
-    <string name="DownloadLink">books/v1/volumes?q=1</string>
+    <string name="Path">"/books/v1/volumes?q=1"</string>
     <!--https://www.googleapis.com/books/v1/volumes?q=technology&maxResults=40-->
 
     //Queries
-    <string name="Popular">volumes?q=1</string>
+    <string name="Default">1</string>
     <string name="Fantasy">subject:fantasy</string>
     <string name="Adventure">subject:adventure</string>
     <string name="BookReview">reviews</string>

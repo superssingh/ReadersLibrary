@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.santossingh.readerslibrary.Database.BooksLibrary;
 import com.santossingh.readerslibrary.Database.Item;
+import com.santossingh.readerslibrary.Services.DataManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -137,6 +138,7 @@ public class BaseFragment extends Fragment {
     public void makeService() {
         dataManager = new DataManager();
         Call<BooksLibrary> listCall;
+        String query = String.valueOf(R.string.Default);
         listCall = dataManager.getJSONData().getPopBooks();
 
         listCall.enqueue(new Callback<BooksLibrary>() {

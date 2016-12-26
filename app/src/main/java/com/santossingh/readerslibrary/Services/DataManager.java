@@ -1,4 +1,4 @@
-package com.santossingh.readerslibrary;
+package com.santossingh.readerslibrary.Services;
 
 import com.santossingh.readerslibrary.Interfaces.LibraryAPI;
 import com.santossingh.readerslibrary.Interfaces.LibraryService;
