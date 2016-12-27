@@ -12,7 +12,9 @@ public interface LibraryAPI {
 
     //By Popularity-----------------------
 
+    String epub = " https://www.googleapis.com/books/v1/volumes?q=pride+prejudice&download=epub&key=";
+    String free = "https://www.googleapis.com/books/v1/volumes?q=flowers&filter=free-ebooks&key=";
+
     @GET("/books/v1/volumes?q=1")
     Call<BooksLibrary> getPopBooks();
-
 }

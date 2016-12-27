@@ -16,5 +16,14 @@
     <string name="No_Internet">Please Turn ON Internet Connection</string>
     <string name="AspectRatio">0.73f</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pdf_show_online_dialog_title">OpenTitle</string>
+    <string name="pdf_show_online_dialog_question">dialog_question</string>
+    <string name="pdf_show_online_dialog_button_no">dialog_button_NO</string>
+    <string name="pdf_show_online_dialog_button_yes">dialog_button_YES</string>
+    <string name="pdf_show_local_progress_title">local_progress_title</string>
+    <string name="pdf_show_local_progress_content">local_progress_content</string>
+
 
 </resources>

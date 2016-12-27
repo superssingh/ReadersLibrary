@@ -85,7 +85,7 @@ public class BaseFragment extends Fragment {
         recyclerViewAdapter = new RecyclerViewAdapter(getContext(), itemsList, mListener);
         recyclerView = (RecyclerView) view.findViewById(R.id.Rlist);
         int columnCount = getResources().getInteger(R.integer.list_column_count);
-        AutofitGridlayout autofitGridlayout = new AutofitGridlayout(getActivity(), 330);
+        AutofitGridlayout autofitGridlayout = new AutofitGridlayout(getActivity(), 240);
         //    StaggeredGridLayoutManager sglm =
         //            new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(autofitGridlayout);

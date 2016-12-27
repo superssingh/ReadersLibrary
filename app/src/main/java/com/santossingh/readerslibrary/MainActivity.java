@@ -1,5 +1,6 @@
 package com.santossingh.readerslibrary;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
     @Override
     public void onListFragmentInteraction(Item item) {
         Toast.makeText(getApplicationContext(), item.getVolumeInfo().getTitle(), Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, ViewActivity.class).putExtra("ViewURL", item.getAccessInfo().getWebReaderLink());
+        startActivity(intent);
     }
 
 }
