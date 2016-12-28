@@ -9,8 +9,8 @@ import retrofit2.http.GET;
  * Created by santoshsingh on 24/12/16.
  */
 public interface LibraryAPI {
-    String free = "/books/v1/volumes?q=history&filter=free-ebooks";
+    String free = "https://www.googleapis.com/books/v1/volumes?q=1&filter=free-ebooks";
 
-    @GET("/books/v1/volumes?q=1")
+    @GET("/books/v1/volumes?q=fiction")
     Call<BooksLibrary> getPopBooks();
 }
