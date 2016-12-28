@@ -29,15 +29,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
 //        exclude group: 'com.google.code.findbugs' //google book api bug solution
     })
-
-    //    compile files('libs/volley.jar')
-//    compile ('com.google.apis:google-api-services-oauth2:v2-rev124-1.22.0'){
-//        exclude group: 'org.apache.httpcomponents' //by group
-//    }
-//    compile ('com.google.apis:google-api-services-books:v1-rev89-1.22.0'){  // google books api
-//        exclude group: 'org.apache.httpcomponents' //by group
-//    }
-//    compile 'com.google.android.gms:play-services:10.0.'
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:support-v4:25.1.0'
     compile 'com.android.support:recyclerview-v7:25.1.0'
@@ -49,4 +40,13 @@ dependencies {
     compile 'com.android.volley:volley:1.0.0'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+//    compile ('com.google.apis:google-api-services-oauth2:v2-rev124-1.22.0'){
+//        exclude group: 'org.apache.httpcomponents' //by group
+//    }
+//    compile ('com.google.apis:google-api-services-books:v1-rev89-1.22.0'){  // google books api
+//        exclude group: 'org.apache.httpcomponents' //by group
+//    }
+//    compile 'com.google.android.gms:play-services:10.0.1'
+
+
 }
