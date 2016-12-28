@@ -112,7 +112,7 @@ public class BaseFragment extends Fragment {
     public void makeService() {
         dataManager = new DataManager();
         Call<BooksLibrary> listCall;
-        String query = String.valueOf(R.string.Default);
+        String query = String.valueOf(R.string.Adventure);
         listCall = dataManager.getJSONData().getPopBooks();
 
         listCall.enqueue(new Callback<BooksLibrary>() {

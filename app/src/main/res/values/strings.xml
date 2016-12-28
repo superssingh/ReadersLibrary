@@ -10,7 +10,8 @@
     <string name="Default">1</string>
     <string name="Fantasy">subject:fantasy</string>
     <string name="Adventure">subject:adventure</string>
-    <string name="BookReview">reviews</string>
+    <string name="History">subject:history</string>
+    <string name="Fiction">subject:fiction</string>
     <string name="Preview">preview</string>
     <string name="KEY">key</string>
     <string name="No_Internet">Please Turn ON Internet Connection</string>
