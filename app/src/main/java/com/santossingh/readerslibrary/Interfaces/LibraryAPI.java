@@ -15,7 +15,6 @@ public interface LibraryAPI {
     String epub = " https://www.googleapis.com/books/v1/volumes?q=pride+prejudice&download=epub&key=";
     String free = "https://www.googleapis.com/books/v1/volumes?q=flowers&filter=free-ebooks&key=";
 
-    //String query= Integer.toString(R.string.Adventure);
-    @GET("/books/v1/volumes?q=2&maxResults=20")
+    @GET("/books/v1/volumes?q=technology")
     Call<BooksLibrary> getPopBooks();
 }
