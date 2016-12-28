@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Books Embedded Viewer API Example</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+    <script type="text/javascript">
+      google.books.load();
+        function alertNotFound() {
+          alert("could not embed the book!");
+        }
+
+        function initialize(val) {
+            var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+            <!--var key = Android.getValue();-->
+            <!--var key='ISBN:0738531367';-->
+            viewer.load(val, alertNotFound);
+        }
+
+      google.books.setOnLoadCallback(initialize);
+
+    </script>
+</head>
+<body>
+<div id="viewerCanvas"></div>
+
+</body>
+</html>

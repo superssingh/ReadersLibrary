@@ -29,8 +29,9 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
 
     @Override
     public void onListFragmentInteraction(Item item) {
-        Toast.makeText(getApplicationContext(), item.getVolumeInfo().getTitle(), Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, ViewActivity.class).putExtra("ViewURL", item.getAccessInfo().getWebReaderLink());
+        String ISBN = item.getVolumeInfo().getIndustryIdentifiers().get(0).getIdentifier();
+        Toast.makeText(getApplicationContext(), ISBN, Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, ViewActivity.class).putExtra("ISBN", ISBN);
         startActivity(intent);
     }
 
