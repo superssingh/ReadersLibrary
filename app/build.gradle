@@ -40,6 +40,7 @@ dependencies {
     compile 'com.android.volley:volley:1.0.0'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 //    compile ('com.google.apis:google-api-services-oauth2:v2-rev124-1.22.0'){
 //        exclude group: 'org.apache.httpcomponents' //by group
 //    }

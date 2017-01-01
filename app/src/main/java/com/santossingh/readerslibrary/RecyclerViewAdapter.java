@@ -42,15 +42,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
+
         holder.mItem = itemList.get(position);
 
-        holder.dynamicImageView.setImageUrl(holder.mItem.getVolumeInfo().getImageLinks().getThumbnail(),
+        holder.dynamicImageView.setImageUrl((holder.mItem.getVolumeInfo().getImageLinks().getThumbnail()),
                 ImageLoaderHelper.getInstance(context).getImageLoader());
         holder.dynamicImageView.setAspectRatio(AspectRatio);
-
         holder.mIdView.setText(holder.mItem.getVolumeInfo().getTitle());
 
-//        holder.mContentView.setText(holder.mItem.getVolumeInfo().getPublishedDate() != null ? "Published: " + holder.mItem.getVolumeInfo().getPublishedDate() : "Published: Not available");
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +76,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView mIdView;
-        //        public final TextView mContentView;
         private final DynamicHeightNetworkImageView dynamicImageView;
         public Item mItem;
 
@@ -86,7 +84,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             mView = view;
             dynamicImageView = (DynamicHeightNetworkImageView) view.findViewById(R.id.thumbnail);
             mIdView = (TextView) view.findViewById(R.id.Title);
-//            mContentView = (TextView) view.findViewById(R.id.Aurthor);
         }
     }
 }

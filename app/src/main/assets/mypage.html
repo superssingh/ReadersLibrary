@@ -6,6 +6,8 @@
     <title>Google Books Embedded Viewer API Example</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="turnjs4/lib/turn.min.js"/>
     <script type="text/javascript">
       google.books.load();
         function alertNotFound() {
@@ -21,6 +23,30 @@
 
       google.books.setOnLoadCallback(initialize);
 
+
+     $(window).ready(function() {
+		$('#viewerCanvas').turn({
+							display: 'single',
+							acceleration: true,
+							gradients: !$.isTouch,
+							elevation:50,
+							when: {
+								turned: function(e, page) {
+									/*console.log('Current view: ', $(this).turn('view'));*/
+								}
+							}
+						});
+	});
+
+
+	$(window).bind('keydown', function(e){
+
+		if (e.keyCode==37)
+			$('#viewerCanvas').turn('previous');
+		else if (e.keyCode==39)
+			$('#viewerCanvas').turn('next');
+
+	});
     </script>
 </head>
 <body>

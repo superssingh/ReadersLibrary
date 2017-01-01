@@ -29,10 +29,14 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
 
     @Override
     public void onListFragmentInteraction(Item item) {
+        String id = item.getId();
         String ISBN = item.getVolumeInfo().getIndustryIdentifiers().get(0).getIdentifier();
         Toast.makeText(getApplicationContext(), ISBN, Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, ViewActivity.class).putExtra("ISBN", ISBN);
+        Intent intent = new Intent(this, ViewActivity.class)
+                .putExtra("ID", id)
+                .putExtra("ISBN", ISBN);
         startActivity(intent);
+
     }
 
 }

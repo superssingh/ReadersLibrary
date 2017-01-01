@@ -11,6 +11,6 @@ import retrofit2.http.GET;
 public interface LibraryAPI {
     String free = "https://www.googleapis.com/books/v1/volumes?q=1&filter=free-ebooks";
 
-    @GET("/books/v1/volumes?q=Business")
+    @GET("/books/v1/volumes?q=history&filter=free-ebooks")
     Call<BooksLibrary> getPopBooks();
 }
