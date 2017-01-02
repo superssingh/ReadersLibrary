@@ -1,5 +1,8 @@
 package com.santossingh.readerslibrary;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -16,6 +19,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -35,8 +39,6 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
 //                DataBindingUtil.setContentView(this, R.layout.activity_main);
 //        // Line 5
 //        binding.setMydatabindinghelper(MyDataBindingHelper.get("Bound"));
-        // Clear the realm from last time
-        Realm.deleteRealm(realmConfiguration);
         // Create a new empty instance of Realm
         realm = Realm.getInstance(realmConfiguration);
     }
@@ -47,16 +49,25 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
         String filename = item.getVolumeInfo().getTitle();
         String ISBN = item.getVolumeInfo().getIndustryIdentifiers().get(0).getIdentifier();
         String PDFLink = item.getAccessInfo().getPdf().getDownloadLink();
-
-
-//        Toast.makeText(getApplicationContext(), PDFLink, Toast.LENGTH_LONG).show();
 //        Intent intent = new Intent(this, ViewActivity.class)
-//                .putExtra("ISBN", ISBN)
 //                .putExtra("ID", id)
 //                .putExtra("downloadPDF",PDFLink);
 //        startActivity(intent);
-        DownloadFile d = new DownloadFile();
-        d.execute(PDFLink, filename);
+        Toast.makeText(this, item.getVolumeInfo().getTitle(), Toast.LENGTH_LONG).show();
+    }
+
+    public void showPdf() {
+        File file = new File(Environment.getExternalStorageDirectory() + "/TestPDF/Read.pdf");
+        PackageManager packageManager = getPackageManager();
+        Intent testIntent = new Intent(Intent.ACTION_VIEW);
+        testIntent.setType("application/pdf");
+        List list = packageManager.queryIntentActivities(testIntent, PackageManager.MATCH_DEFAULT_ONLY);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        Uri uri = Uri.fromFile(file);
+        intent.setDataAndType(uri, "application/pdf");
+        startActivity(intent);
+        Toast.makeText(getApplicationContext(), "Successfully convert", Toast.LENGTH_SHORT).show();
     }
 
     private static class FileDownloader {
@@ -67,8 +78,8 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
 
                 URL url = new URL(fileUrl);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                //urlConnection.setRequestMethod("GET");
-                //urlConnection.setDoOutput(true);
+                urlConnection.setRequestMethod("GET");
+                urlConnection.setDoOutput(true);
                 urlConnection.connect();
 
                 InputStream inputStream = urlConnection.getInputStream();
@@ -81,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
                     fileOutputStream.write(buffer, 0, bufferLength);
                 }
                 fileOutputStream.close();
+
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (MalformedURLException e) {
@@ -89,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
                 e.printStackTrace();
             }
         }
+
     }
 
     private class DownloadFile extends AsyncTask<String, Void, Void> {
@@ -101,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            showPdf();
             Toast.makeText(getApplicationContext(), "Successfully download", Toast.LENGTH_SHORT).show();
         }
 
@@ -117,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
             File folder = new File(extStorageDirectory, "TestPDF");
             folder.mkdir();
 
-            File pdfFile = new File(folder, fileName);
+            File pdfFile = new File(folder, "Read.pdf");
 
             try {
                 pdfFile.createNewFile();
@@ -127,7 +141,6 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
             FileDownloader.downloadFile(fileUrl, pdfFile);
             return null;
         }
-
 
     }
 }

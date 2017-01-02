@@ -112,7 +112,7 @@ public class BaseFragment extends Fragment {
     public void makeService() {
         dataManager = new DataManager();
         Call<BooksLibrary> listCall;
-        listCall = dataManager.getJSONData().getPopBooks();
+        listCall = dataManager.getJSONData().getPaidEngBooks();
 
         listCall.enqueue(new Callback<BooksLibrary>() {
             @Override

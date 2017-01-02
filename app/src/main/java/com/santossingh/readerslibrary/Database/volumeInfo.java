@@ -17,7 +17,7 @@ public class VolumeInfo {
     private int pageCount;
     private String printType;
     private List<String> categories;
-    private int averageRating;
+    private float averageRating;
     private int ratingsCount;
     private String maturityRating;
     private boolean allowAnonLogging;
@@ -108,11 +108,11 @@ public class VolumeInfo {
         this.categories = categories;
     }
 
-    public int getAverageRating() {
+    public float getAverageRating() {
         return this.averageRating;
     }
 
-    public void setAverageRating(int averageRating) {
+    public void setAverageRating(float averageRating) {
         this.averageRating = averageRating;
     }
 
