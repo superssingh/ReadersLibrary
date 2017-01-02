@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
         Realm.init(getApplicationContext());
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().build();
 
+//        ActivityMainBinding binding =
+//                DataBindingUtil.setContentView(this, R.layout.activity_main);
+//        // Line 5
+//        binding.setMydatabindinghelper(MyDataBindingHelper.get("Bound"));
         // Clear the realm from last time
         Realm.deleteRealm(realmConfiguration);
         // Create a new empty instance of Realm
@@ -33,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
         String ISBN = item.getVolumeInfo().getIndustryIdentifiers().get(0).getIdentifier();
         Toast.makeText(getApplicationContext(), ISBN, Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, ViewActivity.class)
-                .putExtra("ID", id)
-                .putExtra("ISBN", ISBN);
+                .putExtra("ISBN", ISBN)
+                .putExtra("ID", id);
         startActivity(intent);
 
     }

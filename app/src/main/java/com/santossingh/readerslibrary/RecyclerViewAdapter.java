@@ -27,6 +27,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private Context context;
     private float AspectRatio = 0.73f;
 
+
     public RecyclerViewAdapter(Context context, List<Item> itemList, OnListFragmentInteractionListener listener) {
         this.context = context;
         this.itemList = itemList;

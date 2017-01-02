@@ -6,48 +6,35 @@
     <title>Google Books Embedded Viewer API Example</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="turnjs4/lib/turn.min.js"/>
-    <script type="text/javascript">
-      google.books.load();
-        function alertNotFound() {
-          alert("could not embed the book!");
-        }
+    <script type="text/javascript" src="jslib/myscript.js"></script>
+    <!--<script type="text/javascript">-->
+    <!--google.books.load();-->
 
-        function initialize(val) {
-            var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-            <!--var key = Android.getValue();-->
-            <!--var key='ISBN:0738531367';-->
-            viewer.load(val, alertNotFound);
-        }
+    <!--function alertInitialized() {-->
+    <!--alert("book successfully loaded and initialized!");-->
+    <!--}-->
 
-      google.books.setOnLoadCallback(initialize);
+    <!--function alertNotFound() {-->
+    <!--alert("could not embed the book!");-->
+    <!--}-->
 
+    <!--function nextStep(viewer) {-->
+    <!--window.setTimeout(function() {-->
+    <!--viewer.nextPage();-->
+    <!--nextStep(viewer);-->
+    <!--}, 3000);-->
+    <!--}-->
 
-     $(window).ready(function() {
-		$('#viewerCanvas').turn({
-							display: 'single',
-							acceleration: true,
-							gradients: !$.isTouch,
-							elevation:50,
-							when: {
-								turned: function(e, page) {
-									/*console.log('Current view: ', $(this).turn('view'));*/
-								}
-							}
-						});
-	});
+    <!--function initialize(val) {-->
+    <!--var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));-->
+    <!--&lt;!&ndash;var key = Android.getValue();&ndash;&gt;-->
+    <!--&lt;!&ndash;var key='ISBN:0738531367';&ndash;&gt;-->
+    <!--viewer.load(val, alertNotFound, alertInitialized);-->
+    <!--nextStep(viewer);-->
+    <!--}-->
 
-
-	$(window).bind('keydown', function(e){
-
-		if (e.keyCode==37)
-			$('#viewerCanvas').turn('previous');
-		else if (e.keyCode==39)
-			$('#viewerCanvas').turn('next');
-
-	});
-    </script>
+    <!--google.books.setOnLoadCallback(initialize);-->
+    <!--</script>-->
 </head>
 <body>
 <div id="viewerCanvas"></div>

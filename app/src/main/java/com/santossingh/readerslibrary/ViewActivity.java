@@ -16,14 +16,9 @@ public class ViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
-
         Bundle intent = getIntent().getExtras();
         key = "ISBN:" + intent.getString("ISBN");
         id = intent.getString("ID");
-
-        // To download and open PDF formate file from url
-//        PDFTools pdfTools=new PDFTools();
-//        pdfTools.showPDFUrl(this,path);
 
         String url = "file:///android_asset/mypage.html";
         webview = (WebView) findViewById(R.id.webView);
