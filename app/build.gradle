@@ -39,17 +39,9 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.4.0'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.volley:volley:1.0.0'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
-//    compile ('com.google.apis:google-api-services-oauth2:v2-rev124-1.22.0'){
-//        exclude group: 'org.apache.httpcomponents' //by group
-//    }
-//    compile ('com.google.apis:google-api-services-books:v1-rev89-1.22.0'){  // google books api
-//        exclude group: 'org.apache.httpcomponents' //by group
-//    }
 //    compile 'com.google.android.gms:play-services:10.0.1'
 
 

@@ -49,11 +49,11 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
         String filename = item.getVolumeInfo().getTitle();
         String ISBN = item.getVolumeInfo().getIndustryIdentifiers().get(0).getIdentifier();
         String PDFLink = item.getAccessInfo().getPdf().getDownloadLink();
-//        Intent intent = new Intent(this, ViewActivity.class)
-//                .putExtra("ID", id)
-//                .putExtra("downloadPDF",PDFLink);
-//        startActivity(intent);
-        Toast.makeText(this, item.getVolumeInfo().getTitle(), Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, ViewActivity.class)
+                .putExtra("ID", id)
+                .putExtra("downloadPDF", PDFLink);
+        startActivity(intent);
+//        Toast.makeText(this, item.getVolumeInfo().getTitle(), Toast.LENGTH_LONG).show();
     }
 
     public void showPdf() {

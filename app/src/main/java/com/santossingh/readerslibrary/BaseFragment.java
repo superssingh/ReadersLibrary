@@ -84,10 +84,7 @@ public class BaseFragment extends Fragment {
     private void configRecycleView() {
         recyclerViewAdapter = new RecyclerViewAdapter(getContext(), itemsList, mListener);
         recyclerView = (RecyclerView) view.findViewById(R.id.Rlist);
-        //    int columnCount = getResources().getInteger(R.integer.list_column_count);
-        AutofitGridlayout autofitGridlayout = new AutofitGridlayout(getActivity(), 300);
-        //    StaggeredGridLayoutManager sglm =
-        //            new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
+        AutofitGridlayout autofitGridlayout = new AutofitGridlayout(getActivity(), 240);
         recyclerView.setLayoutManager(autofitGridlayout);
         recyclerView.setAdapter(recyclerViewAdapter);
     }
@@ -112,7 +109,7 @@ public class BaseFragment extends Fragment {
     public void makeService() {
         dataManager = new DataManager();
         Call<BooksLibrary> listCall;
-        listCall = dataManager.getJSONData().getPaidEngBooks();
+        listCall = dataManager.getJSONData().getFreeHistoryBooks();
 
         listCall.enqueue(new Callback<BooksLibrary>() {
             @Override
