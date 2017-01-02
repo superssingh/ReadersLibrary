@@ -36,16 +36,6 @@ public class PDFTools {
     private static final String PDF_MIME_TYPE = "application/pdf";
     private static final String HTML_MIME_TYPE = "text/html";
 
-
-    public static void showPDFUrl(final Context context, final String pdfUrl) {
-        if (isPDFSupported(context)) {
-            downloadAndOpenPDF(context, pdfUrl);
-        } else {
-            askToOpenPDFThroughGoogleDrive(context, pdfUrl);
-        }
-    }
-
-
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     public static void downloadAndOpenPDF(final Context context, final String pdfUrl) {
         // Get filename
@@ -101,7 +91,6 @@ public class PDFTools {
         dm.enqueue(r);
     }
 
-
     public static void askToOpenPDFThroughGoogleDrive(final Context context, final String pdfUrl) {
         new AlertDialog.Builder(context)
                 .setTitle(R.string.pdf_show_online_dialog_title)
@@ -133,6 +122,14 @@ public class PDFTools {
         final File tempFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "test.pdf");
         i.setDataAndType(Uri.fromFile(tempFile), PDF_MIME_TYPE);
         return context.getPackageManager().queryIntentActivities(i, PackageManager.MATCH_DEFAULT_ONLY).size() > 0;
+    }
+
+    public void showPDFUrl(final Context context, final String pdfUrl) {
+        if (isPDFSupported(context)) {
+            downloadAndOpenPDF(context, pdfUrl);
+        } else {
+            askToOpenPDFThroughGoogleDrive(context, pdfUrl);
+        }
     }
 
     // get File name from url

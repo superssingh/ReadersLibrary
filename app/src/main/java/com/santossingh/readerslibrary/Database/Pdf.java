@@ -6,7 +6,7 @@ package com.santossingh.readerslibrary.Database;
 
 public class Pdf {
     private boolean isAvailable;
-    private String acsTokenLink;
+    private String downloadLink;
 
     public boolean getIsAvailable() {
         return this.isAvailable;
@@ -16,11 +16,11 @@ public class Pdf {
         this.isAvailable = isAvailable;
     }
 
-    public String getAcsTokenLink() {
-        return this.acsTokenLink;
+    public String getDownloadLink() {
+        return this.downloadLink;
     }
 
-    public void setAcsTokenLink(String acsTokenLink) {
-        this.acsTokenLink = acsTokenLink;
+    public void setDownloadLink(String downloadLink) {
+        this.downloadLink = downloadLink;
     }
 }
