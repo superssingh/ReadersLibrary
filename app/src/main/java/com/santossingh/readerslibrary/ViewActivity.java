@@ -10,17 +10,15 @@ import java.io.File;
 public class ViewActivity extends AppCompatActivity {
 
     WebView webview;
-    String id, key, download;
+    String id, key, Preview;
     File file = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view);
         Bundle intent = getIntent().getExtras();
-        download = intent.getString("downloadPDF");
-//      key = "ISBN:" + intent.getString("ISBN");
+        //For preview -----------
         id = intent.getString("ID");
-
         String url = "file:///android_asset/mypage.html";
         webview = (WebView) findViewById(R.id.webView);
         webview.getSettings().setJavaScriptEnabled(true);
@@ -30,7 +28,7 @@ public class ViewActivity extends AppCompatActivity {
                 webview.loadUrl("javascript:initialize('" + id + "')");
             }
         });
-        webview.loadUrl(download);
+        webview.loadUrl(url);
     }
 
 }
