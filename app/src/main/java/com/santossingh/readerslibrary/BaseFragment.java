@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,8 @@ public class BaseFragment extends Fragment {
     private List<Item> itemsList;
     private Item firstResult;
     private View view;
+    private StaggeredGridLayoutManager staggeredGridLayoutManager;
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -84,7 +87,9 @@ public class BaseFragment extends Fragment {
     private void configRecycleView() {
         recyclerViewAdapter = new RecyclerViewAdapter(getContext(), itemsList, mListener);
         recyclerView = (RecyclerView) view.findViewById(R.id.Rlist);
-        AutofitGridlayout autofitGridlayout = new AutofitGridlayout(getActivity(), 240);
+//        staggeredGridLayoutManager =new StaggeredGridLayoutManager(3,1);
+//        recyclerView.setLayoutManager(staggeredGridLayoutManager);
+        AutofitGridlayout autofitGridlayout = new AutofitGridlayout(getActivity(), 260);
         recyclerView.setLayoutManager(autofitGridlayout);
         recyclerView.setAdapter(recyclerViewAdapter);
     }
@@ -109,7 +114,7 @@ public class BaseFragment extends Fragment {
     public void makeService() {
         dataManager = new DataManager();
         Call<BooksLibrary> listCall;
-        listCall = dataManager.getJSONData().getFreeHistoryBooks();
+        listCall = dataManager.getJSONData().getPaidTopBooks();
 
         listCall.enqueue(new Callback<BooksLibrary>() {
             @Override

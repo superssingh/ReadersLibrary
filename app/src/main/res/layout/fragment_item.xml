@@ -4,10 +4,7 @@
     android:id="@+id/placeNameHolder"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="4dp"
-    android:layout_marginLeft="4dp"
-    android:layout_marginRight="4dp"
-    android:layout_marginTop="4dp"
+    android:layout_margin="4dp"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground"
@@ -18,8 +15,6 @@
         android:id="@+id/thumbnail"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <!--android:src="@{user.imageLinks.smallThumbnail}"-->
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,18 +32,6 @@
             android:textColor="#fff"
             android:textSize="@dimen/Title"
             android:textStyle="bold" />
-        <!--android:text="@{user.authors}"-->
-
-        <!--<TextView-->
-        <!--android:id="@+id/Aurthor"-->
-        <!--android:textSize="@dimen/subTitle"-->
-        <!--android:paddingLeft="@dimen/paddingTitle"-->
-        <!--android:paddingBottom="@dimen/paddingSmall"-->
-        <!--android:textColor="#fff"-->
-        <!--android:background="@color/Black_transparent_70"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textAppearance="?attr/textAppearanceListItem" />-->
     </LinearLayout>
 
 </android.support.v7.widget.CardView><!--</layout>-->

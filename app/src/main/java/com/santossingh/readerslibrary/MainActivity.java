@@ -47,15 +47,9 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnLi
     public void onListFragmentInteraction(Item item) {
         String id = item.getId();
         String filename = item.getVolumeInfo().getTitle();
-        String ISBN = item.getVolumeInfo().getIndustryIdentifiers().get(0).getIdentifier();
-        String EpubLink = item.getAccessInfo().getEpub().getDownloadLink();
-        String PreviewLink = item.getVolumeInfo().getPreviewLink();
         Intent intent = new Intent(this, ViewActivity.class)
-                .putExtra("ID", id)
-                .putExtra("ISBN", ISBN)
-                .putExtra("Preview", PreviewLink);
+                .putExtra("ID", id);
         startActivity(intent);
-//        Toast.makeText(this, item.getVolumeInfo().getTitle(), Toast.LENGTH_LONG).show();
     }
 
     public void showPdf() {
