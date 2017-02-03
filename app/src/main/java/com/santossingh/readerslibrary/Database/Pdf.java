@@ -11,7 +11,6 @@ public class Pdf {
     public boolean getIsAvailable() {
         return this.isAvailable;
     }
-
     public void setIsAvailable(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
@@ -19,7 +18,6 @@ public class Pdf {
     public String getDownloadLink() {
         return this.downloadLink;
     }
-
     public void setDownloadLink(String downloadLink) {
         this.downloadLink = downloadLink;
     }

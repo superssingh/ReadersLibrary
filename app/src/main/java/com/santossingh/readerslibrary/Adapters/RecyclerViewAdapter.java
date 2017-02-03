@@ -1,4 +1,4 @@
-package com.santossingh.readerslibrary;
+package com.santossingh.readerslibrary.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,8 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.santossingh.readerslibrary.BaseFragment.OnListFragmentInteractionListener;
+import com.santossingh.readerslibrary.Fragments.BaseFragment.OnListFragmentInteractionListener;
 import com.santossingh.readerslibrary.Database.Item;
+import com.santossingh.readerslibrary.R;
 import com.santossingh.readerslibrary.Utilities.DynamicHeightNetworkImageView;
 import com.santossingh.readerslibrary.Utilities.ImageLoaderHelper;
 

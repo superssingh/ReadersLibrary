@@ -12,7 +12,6 @@ public class BooksLibrary {
     public String getKind() {
         return this.kind;
     }
-
     public void setKind(String kind) {
         this.kind = kind;
     }
@@ -20,7 +19,6 @@ public class BooksLibrary {
     public int getTotalItems() {
         return this.totalItems;
     }
-
     public void setTotalItems(int totalItems) {
         this.totalItems = totalItems;
     }
@@ -28,7 +26,6 @@ public class BooksLibrary {
     public Item[] getItems() {
         return this.items;
     }
-
     public void setItems(Item[] items) {
         this.items = items;
     }

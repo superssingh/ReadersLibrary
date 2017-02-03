@@ -10,7 +10,6 @@ public class SearchInfo {
     public String getTextSnippet() {
         return this.textSnippet;
     }
-
     public void setTextSnippet(String textSnippet) {
         this.textSnippet = textSnippet;
     }

@@ -1,4 +1,4 @@
-package com.santossingh.readerslibrary;
+package com.santossingh.readerslibrary.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.santossingh.readerslibrary.Database.BooksLibrary;
 import com.santossingh.readerslibrary.Database.Item;
+import com.santossingh.readerslibrary.R;
+import com.santossingh.readerslibrary.Adapters.RecyclerViewAdapter;
 import com.santossingh.readerslibrary.Services.DataManager;
 import com.santossingh.readerslibrary.Utilities.AutofitGridlayout;
 
@@ -44,7 +46,6 @@ public class BaseFragment extends Fragment {
     private View view;
     private StaggeredGridLayoutManager staggeredGridLayoutManager;
 
-
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -74,10 +75,9 @@ public class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_item_list, container, false);
+        view = inflater.inflate(R.layout.fragment_main, container, false);
 
         itemsList = new ArrayList<Item>();
-
         // Set the adapter
         configRecycleView();
         makeService();
@@ -87,8 +87,6 @@ public class BaseFragment extends Fragment {
     private void configRecycleView() {
         recyclerViewAdapter = new RecyclerViewAdapter(getContext(), itemsList, mListener);
         recyclerView = (RecyclerView) view.findViewById(R.id.Rlist);
-//        staggeredGridLayoutManager =new StaggeredGridLayoutManager(3,1);
-//        recyclerView.setLayoutManager(staggeredGridLayoutManager);
         AutofitGridlayout autofitGridlayout = new AutofitGridlayout(getActivity(), 260);
         recyclerView.setLayoutManager(autofitGridlayout);
         recyclerView.setAdapter(recyclerViewAdapter);

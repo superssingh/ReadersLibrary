@@ -1,12 +1,17 @@
-package com.santossingh.readerslibrary;
+package com.santossingh.readerslibrary.Fragments;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.santossingh.readerslibrary.R;
 
 
 /**
@@ -22,12 +27,15 @@ public class DetailFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    View rootview;
+    CollapsingToolbarLayout collapsingToolbarLayout;
+    CoordinatorLayout coordinatorLayout;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private OnFragmentInteractionListener mListener;
+    private ImageView Imagebar;
+    private Toolbar toolBar;
 
     public DetailFragment() {
         // Required empty public constructor
@@ -64,7 +72,36 @@ public class DetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false);
+        rootview = inflater.inflate(R.layout.fragment_detail, container, false);
+
+        coordinatorLayout = (CoordinatorLayout) rootview.findViewById(R.id.coordinator);
+        collapsingToolbarLayout = (CollapsingToolbarLayout) rootview.findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
+        collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
+
+
+        Imagebar = (ImageView) rootview.findViewById(R.id.ImageBar);
+
+        toolBar = (Toolbar) rootview.findViewById(R.id.toolbar);
+        toolBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+            }
+        });
+
+//        rootview.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
+//                        .setType("text/plain")
+//                        .setText(mCursor.getString(ArticleLoader.Query.BODY))
+//                        .getIntent(), getString(R.string.action_share)));
+//            }
+//        });
+
+        return rootview;
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -73,17 +110,17 @@ public class DetailFragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
+//
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//        if (context instanceof OnFragmentInteractionListener) {
+//            mListener = (OnFragmentInteractionListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement OnFragmentInteractionListener");
+//        }
+//    }
 
     @Override
     public void onDetach() {

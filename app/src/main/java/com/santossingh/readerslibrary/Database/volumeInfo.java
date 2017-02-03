@@ -2,7 +2,7 @@ package com.santossingh.readerslibrary.Database;
 
 import java.util.List;
 
-/**
+/*
  * Created by santoshsingh on 25/12/16.
  */
 
@@ -31,7 +31,6 @@ public class VolumeInfo {
     public String getTitle() {
         return this.title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -39,7 +38,6 @@ public class VolumeInfo {
     public List<String> getAuthors() {
         return this.authors;
     }
-
     public void setAuthors(List<String> authors) {
         this.authors = authors;
     }
@@ -47,7 +45,6 @@ public class VolumeInfo {
     public String getPublisher() {
         return this.publisher;
     }
-
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
@@ -55,7 +52,6 @@ public class VolumeInfo {
     public String getPublishedDate() {
         return this.publishedDate;
     }
-
     public void setPublishedDate(String publishedDate) {
         this.publishedDate = publishedDate;
     }
@@ -63,7 +59,6 @@ public class VolumeInfo {
     public String getDescription() {
         return this.description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -71,7 +66,6 @@ public class VolumeInfo {
     public List<IndustryIdentifiers> getIndustryIdentifiers() {
         return this.industryIdentifiers;
     }
-
     public void setIndustryIdentifiers(List<IndustryIdentifiers> industryIdentifiers) {
         this.industryIdentifiers = industryIdentifiers;
     }
@@ -79,7 +73,6 @@ public class VolumeInfo {
     public ReadingModes getReadingModes() {
         return this.readingModes;
     }
-
     public void setReadingModes(ReadingModes readingModes) {
         this.readingModes = readingModes;
     }
@@ -87,7 +80,6 @@ public class VolumeInfo {
     public int getPageCount() {
         return this.pageCount;
     }
-
     public void setPageCount(int pageCount) {
         this.pageCount = pageCount;
     }
@@ -95,7 +87,6 @@ public class VolumeInfo {
     public String getPrintType() {
         return this.printType;
     }
-
     public void setPrintType(String printType) {
         this.printType = printType;
     }
@@ -103,7 +94,6 @@ public class VolumeInfo {
     public List<String> getCategories() {
         return this.categories;
     }
-
     public void setCategories(List<String> categories) {
         this.categories = categories;
     }
@@ -111,7 +101,6 @@ public class VolumeInfo {
     public float getAverageRating() {
         return this.averageRating;
     }
-
     public void setAverageRating(float averageRating) {
         this.averageRating = averageRating;
     }
@@ -119,7 +108,6 @@ public class VolumeInfo {
     public int getRatingsCount() {
         return this.ratingsCount;
     }
-
     public void setRatingsCount(int ratingsCount) {
         this.ratingsCount = ratingsCount;
     }
@@ -127,7 +115,6 @@ public class VolumeInfo {
     public String getMaturityRating() {
         return this.maturityRating;
     }
-
     public void setMaturityRating(String maturityRating) {
         this.maturityRating = maturityRating;
     }
@@ -135,7 +122,6 @@ public class VolumeInfo {
     public boolean getAllowAnonLogging() {
         return this.allowAnonLogging;
     }
-
     public void setAllowAnonLogging(boolean allowAnonLogging) {
         this.allowAnonLogging = allowAnonLogging;
     }
@@ -143,7 +129,6 @@ public class VolumeInfo {
     public String getContentVersion() {
         return this.contentVersion;
     }
-
     public void setContentVersion(String contentVersion) {
         this.contentVersion = contentVersion;
     }
@@ -151,7 +136,6 @@ public class VolumeInfo {
     public ImageLinks getImageLinks() {
         return this.imageLinks;
     }
-
     public void setImageLinks(ImageLinks imageLinks) {
         this.imageLinks = imageLinks;
     }
@@ -159,7 +143,6 @@ public class VolumeInfo {
     public String getLanguage() {
         return this.language;
     }
-
     public void setLanguage(String language) {
         this.language = language;
     }
@@ -167,7 +150,6 @@ public class VolumeInfo {
     public String getPreviewLink() {
         return this.previewLink;
     }
-
     public void setPreviewLink(String previewLink) {
         this.previewLink = previewLink;
     }
@@ -175,7 +157,6 @@ public class VolumeInfo {
     public String getInfoLink() {
         return this.infoLink;
     }
-
     public void setInfoLink(String infoLink) {
         this.infoLink = infoLink;
     }
@@ -183,7 +164,6 @@ public class VolumeInfo {
     public String getCanonicalVolumeLink() {
         return this.canonicalVolumeLink;
     }
-
     public void setCanonicalVolumeLink(String canonicalVolumeLink) {
         this.canonicalVolumeLink = canonicalVolumeLink;
     }
