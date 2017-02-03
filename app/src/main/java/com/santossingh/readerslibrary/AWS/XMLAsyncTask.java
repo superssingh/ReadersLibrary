@@ -14,6 +14,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
  */
 
 public class XMLAsyncTask extends AsyncTask<String, Void, String> {
+
     private static String fetchTitle(String requestUrl) {
         String title = null;
         try {
@@ -21,8 +22,8 @@ public class XMLAsyncTask extends AsyncTask<String, Void, String> {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document doc = db.parse(requestUrl);
-            Node titleNode = doc.getElementsByTagName("Item").item(0).getFirstChild();
-            title = titleNode.getTextContent();
+            Node titleNode = doc.getElementsByTagName("Item").item(0);
+            title = titleNode.getNodeName();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
