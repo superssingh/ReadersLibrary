@@ -15,16 +15,15 @@ import java.util.List;
 
 public class XMLPullParserHandler {
 
+    private final String ITEM_TAG = "item";
+    private final String DETAIL_PAGE_URL = "detailpageurl";
+
     List<ItemData> itemData;
     private ItemData buylink;
     private String text;
 
     public XMLPullParserHandler() {
         itemData = new ArrayList<ItemData>();
-    }
-
-    public List<ItemData> getItemData() {
-        return itemData;
     }
 
     public String parse(InputStream is) {
@@ -42,8 +41,8 @@ public class XMLPullParserHandler {
                 String tagname = parser.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        if (tagname.equalsIgnoreCase("item")) {
-                            // create a new instance of employee
+                        if (tagname.equalsIgnoreCase(ITEM_TAG)) {
+                            // create a new instance of ItemData
                             buylink = new ItemData();
                         }
                         break;
@@ -53,10 +52,10 @@ public class XMLPullParserHandler {
                         break;
 
                     case XmlPullParser.END_TAG:
-                        if (tagname.equalsIgnoreCase("item")) {
-                            // add employee object to list
+                        if (tagname.equalsIgnoreCase(ITEM_TAG)) {
+                            // add ItemData object to list
                             itemData.add(buylink);
-                        } else if (tagname.equalsIgnoreCase("detailpageurl")) {
+                        } else if (tagname.equalsIgnoreCase(DETAIL_PAGE_URL)) {
                             buylink.setDetailpageurl(text);
                         }
                         break;
