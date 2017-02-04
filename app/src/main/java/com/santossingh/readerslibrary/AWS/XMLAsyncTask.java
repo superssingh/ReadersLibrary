@@ -1,13 +1,13 @@
 package com.santossingh.readerslibrary.AWS;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by santoshsingh on 03/02/17.
@@ -15,57 +15,68 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class XMLAsyncTask extends AsyncTask<String, Void, String> {
 
-    private static String fetchTitle(String requestUrl) {
-        String title = null;
-        try {
-            Log.i("URL", requestUrl);
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(requestUrl);
-            Node titleNode = doc.getElementsByTagName("Item").item(0);
-            title = titleNode.getNodeName();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return title;
-    }
+    // Your AWS Access Key ID, as taken from the AWS Your Account page.
+    private static final String AWS_ACCESS_KEY_ID = "AKIAILMCDWNHZ6OBN2QQ";
+    // Your AWS Secret Key corresponding to the above ID, as taken from the AWS
+    private static final String AWS_SECRET_KEY = "qWESYwVUgn2IcdHOmZZwK1xU3VcK98TxcRlQsEV2";
+    //Use the end-point according to the region you are interested in.
+    private static final String ENDPOINT = "webservices.amazon.in";
+
 
     @Override
     protected String doInBackground(String... strings) {
-        String xml = "Not Catched";
+        String buyURL = "";
         try {
-//            URL url = new URL(strings[0]);
-            fetchTitle(strings[0]);
+            String xml = getURL(strings[0]);
 
-//            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-//            DocumentBuilder db = dbf.newDocumentBuilder();
-//            Document doc = db.parse(new InputSource(url.openStream()));
-//            NodeList nodeList = doc.getElementsByTagName("items");
-//            if (nodeList.item(0).hasAttributes()){
-//                Log.i("has","Yes");
-//            }else if(nodeList==null) {
-//                Log.i("Not","No");
-//            }else{
-//                Log.i("has",nodeList.toString());
-//            }
+            InputStream stream = downloadUrl(xml);
 
-            /** Assign textview array lenght by arraylist size */
+            XMLPullParserHandler xmlPullParserHandler = new XMLPullParserHandler();
+            buyURL = xmlPullParserHandler.parse(stream);
 
-//            for (int i = 0; i < nodeList.getLength(); i++) {
-//
-//                Node node = nodeList.item(i);
-//
-//                Element fstElmnt = (Element) node;
-//                NodeList nameList = fstElmnt.getElementsByTagName("item");
-//                Element nameElement = (Element) nameList.item(0);
-//                nameList = nameElement.getChildNodes();
-//                Log.i("Name : ", (nameList.item(0)).getNodeValue());
-//                xml=(nameList.item(0)).getNodeValue();
-//            }
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return xml;
+        return buyURL;
     }
+
+    public String getURL(String ISBN) {
+        SignedRequestsHelper helper;
+
+        try {
+            helper = SignedRequestsHelper.getInstance(ENDPOINT, AWS_ACCESS_KEY_ID, AWS_SECRET_KEY);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return e.getMessage();
+        }
+
+        Map<String, String> params = new HashMap<String, String>();
+
+        params.put("Service", "AWSECommerceService");
+        params.put("Operation", "ItemLookup");
+        params.put("AWSAccessKeyId", "AKIAILMCDWNHZ6OBN2QQ");
+        params.put("AssociateTag", "superssingh-21");
+        params.put("ItemId", ISBN);
+        params.put("IdType", "ISBN");
+        params.put("ResponseGroup", "Images,ItemAttributes,Offers");
+        params.put("IncludeReviewsSummary", "true");
+        params.put("SearchIndex", "Books");
+
+        return helper.sign(params);
+    }
+
+
+    private InputStream downloadUrl(String urlString) throws IOException {
+        URL url = new URL(urlString);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setReadTimeout(10000); /* milliseconds */
+        conn.setConnectTimeout(15000); /* milliseconds */
+        conn.setRequestMethod("GET");
+        conn.setDoInput(true);
+        // Starts the query
+        conn.connect();
+        return conn.getInputStream();
+    }
+
 }

@@ -23,7 +23,8 @@
         </activity>
         <activity android:name=".Activities.ViewActivity" />
         <activity android:name=".Activities.DetailActivity" />
-        <activity android:name=".Activities.EPubReaderActivity"></activity>
+        <activity android:name=".Activities.EPubReaderActivity" />
+        <activity android:name=".Activities.NetworkActivity"></activity>
     </application>
 
 </manifest>

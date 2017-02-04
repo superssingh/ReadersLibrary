@@ -1,13 +1,13 @@
 package com.santossingh.readerslibrary.AWS;
 
-import android.util.Log;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by santoshsingh on 03/02/17.
@@ -15,12 +15,19 @@ import java.io.InputStream;
 
 public class XMLPullParserHandler {
 
+    List<ItemData> itemData;
+    private ItemData buylink;
     private String text;
 
     public XMLPullParserHandler() {
+        itemData = new ArrayList<ItemData>();
     }
 
-    public Void parse(InputStream is) { // pas the input stream
+    public List<ItemData> getItemData() {
+        return itemData;
+    }
+
+    public String parse(InputStream is) {
         XmlPullParserFactory factory = null;
         XmlPullParser parser = null;
         try {
@@ -29,21 +36,16 @@ public class XMLPullParserHandler {
             parser = factory.newPullParser();
 
             parser.setInput(is, null);
-            boolean check = false;
-
-            //factory instantiates an object
 
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 String tagname = parser.getName();
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        if (tagname.equalsIgnoreCase("image")) {
-                            if (parser.getAttributeValue(null, "size").equals("extralarge")) {
-                                check = true;
-                            }
+                        if (tagname.equalsIgnoreCase("item")) {
+                            // create a new instance of employee
+                            buylink = new ItemData();
                         }
-
                         break;
 
                     case XmlPullParser.TEXT:
@@ -51,22 +53,12 @@ public class XMLPullParserHandler {
                         break;
 
                     case XmlPullParser.END_TAG:
-                        String val = null;
-                        if (tagname.equalsIgnoreCase("name")) {
-                            val = text;
-                            Log.i("", " name is " + val);
-                        } else if (tagname.equalsIgnoreCase("mbid")) {
-                            val = text;
-                            Log.i("", " mbid is " + val);
-                        } else if (tagname.equalsIgnoreCase("url")) {
-                            val = text;
-                            Log.i("", " url is " + val);
-                        } else if (tagname.equalsIgnoreCase("image")) {
-                            val = text;
-                            if (check == true)
-                                Log.i("", " image is " + val);
+                        if (tagname.equalsIgnoreCase("item")) {
+                            // add employee object to list
+                            itemData.add(buylink);
+                        } else if (tagname.equalsIgnoreCase("detailpageurl")) {
+                            buylink.setDetailpageurl(text);
                         }
-
                         break;
 
                     default:
@@ -81,6 +73,6 @@ public class XMLPullParserHandler {
             e.printStackTrace();
         }
 
-        return null;
+        return itemData.get(0).getDetailpageurl();
     }
 }

@@ -1,0 +1,157 @@
+<?xml version="1.0" ?>
+<ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+    <OperationRequest>
+        <HTTPHeaders>
+            <Header Name="UserAgent"
+                Value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/601.5.17 (KHTML, like Gecko) Version/9.1 Safari/601.5.17"></Header>
+        </HTTPHeaders>
+        <RequestId>2e6c85d2-7b4d-4286-9dd2-3fa1a498f2f3</RequestId>
+        <Arguments>
+            <Argument Name="AWSAccessKeyId" Value="AKIAILMCDWNHZ6OBN2QQ"></Argument>
+            <Argument Name="AssociateTag" Value="superssingh-21"></Argument>
+            <Argument Name="IdType" Value="ISBN"></Argument>
+            <Argument Name="ItemId" Value="9780191647581"></Argument>
+            <Argument Name="Operation" Value="ItemLookup"></Argument>
+            <Argument Name="ResponseGroup" Value="Images,ItemAttributes"></Argument>
+            <Argument Name="SearchIndex" Value="Books"></Argument>
+            <Argument Name="Service" Value="AWSECommerceService"></Argument>
+            <Argument Name="Timestamp" Value="2017-02-04T17:55:02.000Z"></Argument>
+            <Argument Name="Signature"
+                Value="DZUTBsv0YXGjCgh3QzardLi5GfXDO4ykAOnwn59caeE="></Argument>
+        </Arguments>
+        <RequestProcessingTime>0.0213083360000000</RequestProcessingTime>
+    </OperationRequest>
+    <Items>
+        <Request>
+            <IsValid>True</IsValid>
+            <ItemLookupRequest>
+                <IdType>ISBN</IdType>
+                <ItemId>9780191647581</ItemId>
+                <ResponseGroup>Images</ResponseGroup>
+                <ResponseGroup>ItemAttributes</ResponseGroup>
+                <SearchIndex>Books</SearchIndex>
+                <VariationPage>All</VariationPage>
+            </ItemLookupRequest>
+        </Request>
+        <Item>
+            <ASIN>B008C7VY9Y</ASIN>
+            <DetailPageURL>
+                https://www.amazon.in/Contours-World-Economy-1-2030-Macro-Economic-ebook/dp/B008C7VY9Y%3FSubscriptionId%3DAKIAILMCDWNHZ6OBN2QQ%26tag%3Dsuperssingh-21%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008C7VY9Y
+            </DetailPageURL>
+            <ItemLinks>
+                <ItemLink>
+                    <Description>Add To Wishlist</Description>
+                    <URL>
+                        https://www.amazon.in/gp/registry/wishlist/add-item.html%3Fasin.0%3DB008C7VY9Y%26SubscriptionId%3DAKIAILMCDWNHZ6OBN2QQ%26tag%3Dsuperssingh-21%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008C7VY9Y
+                    </URL>
+                </ItemLink>
+                <ItemLink>
+                    <Description>Tell A Friend</Description>
+                    <URL>
+                        https://www.amazon.in/gp/pdp/taf/B008C7VY9Y%3FSubscriptionId%3DAKIAILMCDWNHZ6OBN2QQ%26tag%3Dsuperssingh-21%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008C7VY9Y
+                    </URL>
+                </ItemLink>
+                <ItemLink>
+                    <Description>All Customer Reviews</Description>
+                    <URL>
+                        https://www.amazon.in/review/product/B008C7VY9Y%3FSubscriptionId%3DAKIAILMCDWNHZ6OBN2QQ%26tag%3Dsuperssingh-21%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008C7VY9Y
+                    </URL>
+                </ItemLink>
+                <ItemLink>
+                    <Description>All Offers</Description>
+                    <URL>
+                        https://www.amazon.in/gp/offer-listing/B008C7VY9Y%3FSubscriptionId%3DAKIAILMCDWNHZ6OBN2QQ%26tag%3Dsuperssingh-21%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008C7VY9Y
+                    </URL>
+                </ItemLink>
+            </ItemLinks>
+            <SmallImage>
+                <URL>https://images-eu.ssl-images-amazon.com/images/I/41EKiSkRpmL._SL75_.jpg</URL>
+                <Height Units="pixels">75</Height>
+                <Width Units="pixels">51</Width>
+            </SmallImage>
+            <MediumImage>
+                <URL>https://images-eu.ssl-images-amazon.com/images/I/41EKiSkRpmL._SL160_.jpg</URL>
+                <Height Units="pixels">160</Height>
+                <Width Units="pixels">108</Width>
+            </MediumImage>
+            <LargeImage>
+                <URL>https://images-eu.ssl-images-amazon.com/images/I/41EKiSkRpmL.jpg</URL>
+                <Height Units="pixels">500</Height>
+                <Width Units="pixels">337</Width>
+            </LargeImage>
+            <ImageSets>
+                <ImageSet Category="primary">
+                    <SwatchImage>
+                        <URL>
+                            https://images-eu.ssl-images-amazon.com/images/I/41EKiSkRpmL._SL30_.jpg
+                        </URL>
+                        <Height Units="pixels">30</Height>
+                        <Width Units="pixels">20</Width>
+                    </SwatchImage>
+                    <SmallImage>
+                        <URL>
+                            https://images-eu.ssl-images-amazon.com/images/I/41EKiSkRpmL._SL75_.jpg
+                        </URL>
+                        <Height Units="pixels">75</Height>
+                        <Width Units="pixels">51</Width>
+                    </SmallImage>
+                    <ThumbnailImage>
+                        <URL>
+                            https://images-eu.ssl-images-amazon.com/images/I/41EKiSkRpmL._SL75_.jpg
+                        </URL>
+                        <Height Units="pixels">75</Height>
+                        <Width Units="pixels">51</Width>
+                    </ThumbnailImage>
+                    <TinyImage>
+                        <URL>
+                            https://images-eu.ssl-images-amazon.com/images/I/41EKiSkRpmL._SL110_.jpg
+                        </URL>
+                        <Height Units="pixels">110</Height>
+                        <Width Units="pixels">74</Width>
+                    </TinyImage>
+                    <MediumImage>
+                        <URL>
+                            https://images-eu.ssl-images-amazon.com/images/I/41EKiSkRpmL._SL160_.jpg
+                        </URL>
+                        <Height Units="pixels">160</Height>
+                        <Width Units="pixels">108</Width>
+                    </MediumImage>
+                    <LargeImage>
+                        <URL>https://images-eu.ssl-images-amazon.com/images/I/41EKiSkRpmL.jpg</URL>
+                        <Height Units="pixels">500</Height>
+                        <Width Units="pixels">337</Width>
+                    </LargeImage>
+                </ImageSet>
+            </ImageSets>
+            <ItemAttributes>
+                <Author>Angus Maddison</Author>
+                <Binding>Kindle Edition</Binding>
+                <Edition>1</Edition>
+                <EISBN>9780191647581</EISBN>
+                <Format>Kindle eBook</Format>
+                <Label>OUP Oxford</Label>
+                <Languages>
+                    <Language>
+                        <Name>English</Name>
+                        <Type>Published</Type>
+                    </Language>
+                </Languages>
+                <ListPrice>
+                    <Amount>35611</Amount>
+                    <CurrencyCode>INR</CurrencyCode>
+                    <FormattedPrice>INR 356.11</FormattedPrice>
+                </ListPrice>
+                <Manufacturer>OUP Oxford</Manufacturer>
+                <NumberOfPages>427</NumberOfPages>
+                <ProductGroup>eBooks</ProductGroup>
+                <ProductTypeName>ABIS_EBOOKS</ProductTypeName>
+                <PublicationDate>2007-09-20</PublicationDate>
+                <Publisher>OUP Oxford</Publisher>
+                <ReleaseDate>2007-09-20</ReleaseDate>
+                <Studio>OUP Oxford</Studio>
+                <Title>Contours of the World Economy 1-2030 AD: Essays in Macro-Economic History
+                </Title>
+            </ItemAttributes>
+        </Item>
+    </Items>
+</ItemLookupResponse>

@@ -35,6 +35,11 @@
     <string name="PREVIEW_LINK">PREVIEW_URL</string>
     <string name="BUY_LINK">BUY_LINK</string>
     <string name="DOWNLOAD_LINK">DOWNLOAD_LINK</string>
+    <string name="connection_error">Connection Error</string>
+    <string name="xml_error">XML error</string>
+    <string name="page_title">Amazon.com Link</string>
+    <string name="updated">book</string>
+    <string name="hello_world">hello world</string>
 
 
 </resources>
